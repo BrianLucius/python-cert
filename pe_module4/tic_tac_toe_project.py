@@ -1,4 +1,4 @@
-from random import randrange
+from random import randint
 
 board = []
 board_lookup_table = [('n/a', 'n/a'), (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
@@ -61,7 +61,7 @@ def draw_move(board):
     # The function draws the computer's move and updates the board.
     valid_move = False
     while not valid_move:
-        move = randrange(1, 10)
+        move = randint(1, 9)
         if board_lookup_table[move] in make_list_of_free_fields(board):
             valid_move = True
             (x, y) = board_lookup_table[move]
