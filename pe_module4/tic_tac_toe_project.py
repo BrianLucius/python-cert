@@ -61,7 +61,7 @@ def draw_move(board):
     # The function draws the computer's move and updates the board.
     valid_move = False
     while not valid_move:
-        move = randrange(9)+1
+        move = randrange(1, 10)
         if board_lookup_table[move] in make_list_of_free_fields(board):
             valid_move = True
             (x, y) = board_lookup_table[move]
