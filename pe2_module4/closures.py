@@ -8,3 +8,6 @@ def outer(par):
 var = 2
 fun = outer(var)
 print(fun(3))
+
+b = bytearray(3)
+print(b)
