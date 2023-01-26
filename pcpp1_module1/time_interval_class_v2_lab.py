@@ -7,21 +7,29 @@ class Time:
         self.ss = ss
         
     def __add__(self, other):
-        ss_added = (self.ss + other.ss) % 60
-        mm_added = (self.mm + other.mm + ((self.ss + other.ss) // 60)) % 60
-        hh_added = (self.hh + other.hh + ((self.mm + other.mm) // 60)) % 24
+        t1_secs = self.hh * 3600 + self.mm * 60 + self.ss
+        t2_secs = other.hh * 3600 + other.mm * 60 + other.ss
+        
+        hh_added = (t1_secs + t2_secs) // 3600
+        mm_added = (t1_secs + t2_secs - hh_added * 3600) // 60
+        ss_added = (t1_secs + t2_secs - hh_added * 3600 - mm_added * 60)
         return f"{hh_added:02d}" + ":" + f"{mm_added:02d}" + ":" + f"{ss_added:02d}"
 
     def __sub__(self, other):
-        ss_subbed = (self.ss - other.ss) if (self.ss - other.ss) >= 0 else 60 + (self.ss - other.ss)
-        mm_subbed = (self.mm - other.mm) if (self.mm - other.mm - ((self.ss - other.ss) < 0)) >= 0 else 60 + (self.mm - other.mm - ((self.ss - other.ss) < 0))
-        hh_subbed = (self.hh - other.hh) if (self.hh - other.hh - ((self.mm - other.mm) < 0)) >= 0 else 24 + (self.hh - other.hh - ((self.mm - other.mm) < 0))
+        t1_secs = self.hh * 3600 + self.mm * 60 + self.ss
+        t2_secs = other.hh * 3600 + other.mm * 60 + other.ss
+        
+        hh_subbed = (t1_secs - t2_secs) // 3600
+        mm_subbed = (t1_secs - t2_secs - hh_subbed * 3600) // 60
+        ss_subbed = (t1_secs - t2_secs - hh_subbed * 3600 - mm_subbed * 60)
         return f"{hh_subbed:02d}" + ":" + f"{mm_subbed:02d}" + ":" + f"{ss_subbed:02d}"
     
     def __mul__(self, multiplier):
-        ss_mult = (self.ss * multiplier) % 60
-        mm_mult = (self.mm * multiplier + ((self.ss * multiplier) // 60)) % 60
-        hh_mult = (self.hh * multiplier + ((self.mm * multiplier) // 60))
+        t1_secs = self.hh * 3600 + self.mm * 60 + self.ss
+        
+        hh_mult = (t1_secs * multiplier) // 3600
+        mm_mult = (t1_secs * multiplier - hh_mult * 3600) // 60
+        ss_mult = (t1_secs * multiplier - hh_mult * 3600 - mm_mult * 60)
         return f"{hh_mult:02d}" + ":" + f"{mm_mult:02d}" + ":" + f"{ss_mult:02d}"
     
     def __str__(self):
