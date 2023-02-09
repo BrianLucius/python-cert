@@ -104,23 +104,56 @@
 # class Bottom(Left, Top):
 #     pass
 
-class Alpha:
-    value = "Alpha"
-    def say(self):
-        return self.value.lower()
+# class Alpha:
+#     value = "Alpha"
+#     def say(self):
+#         return self.value.lower()
 
-class Beta(Alpha):
-    value = "Beta"
+# class Beta(Alpha):
+#     value = "Beta"
 
 
-class Gamma(Alpha):
-    def say(self):
-        return self.value.upper()
+# class Gamma(Alpha):
+#     def say(self):
+#         return self.value.upper()
 
-class Delta(Gamma, Beta):
-    pass
+# class Delta(Gamma, Beta):
+#     pass
 
-d = Delta()
-b = Beta()
-print(d.say())
-# print(Delta.__bases__)
+# d = Delta()
+# b = Beta()
+# # print(d.say())
+# # print(Delta.__bases__)
+# print(d.__dict__)
+# print(b.__dict__)
+
+import inspect 
+
+class Cat:
+    Species = 1
+    
+    def __init__(self):
+        print('Cat:',__name__)
+        self.CatInstance = 1.414
+    
+    def get_species(self):
+        return 'kitty'
+    
+class Tiger(Cat):
+    def __init__(self):
+        super().__init__()
+        print('Species:',self.Species)
+        print('Tiger:',__name__)
+        self.TigerInstance = 3.14
+    
+    def get_species(self):
+        return 'tiggy'
+    
+    def set_species(self):
+        pass
+    
+creature = Tiger()
+print(creature.Species)
+print(hasattr(creature, "Species"), hasattr(Cat, "set_species"))
+print(creature.__dict__)
+print(inspect.getmembers(creature))
