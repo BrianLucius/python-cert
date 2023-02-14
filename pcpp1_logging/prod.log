@@ -1,0 +1,21 @@
+CRITICAL:root:Your CRITICAL message
+CRITICAL:root:Your CRITICAL message
+ERROR:root:Your ERROR message
+WARNING:root:Your WARNING message
+INFO:root:Your INFO message
+DEBUG:root:Your DEBUG message
+root:CRITICAL:2023-02-13 18:14:28,997:Your CRITICAL message
+root:ERROR:2023-02-13 18:14:28,997:Your ERROR message
+root:WARNING:2023-02-13 18:14:28,997:Your WARNING message
+root:INFO:2023-02-13 18:14:28,997:Your INFO message
+root:DEBUG:2023-02-13 18:14:28,997:Your DEBUG message
+2023-02-13 18:15:28,672:CRITICAL:root:Your CRITICAL message
+2023-02-13 18:15:28,672:ERROR:root:Your ERROR message
+2023-02-13 18:15:28,672:WARNING:root:Your WARNING message
+2023-02-13 18:15:28,672:INFO:root:Your INFO message
+2023-02-13 18:15:28,672:DEBUG:root:Your DEBUG message
+2023-02-13 18:15:40,785:CRITICAL:root:Your CRITICAL message
+2023-02-13 18:15:40,785:ERROR:root:Your ERROR message
+2023-02-13 18:15:40,785:WARNING:root:Your WARNING message
+2023-02-13 18:15:40,785:INFO:root:Your INFO message
+2023-02-13 18:15:40,785:DEBUG:root:Your DEBUG message
